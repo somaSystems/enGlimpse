@@ -2,14 +2,20 @@
 title: "README"
 author: "LGD"
 date: "20/05/2023"
-output: html_document
+output:
+  github_document:
+    toc: true
+    toc_depth: 3
 ---
+
+enGlimpse is a package of tools for **emgeezing** or **englimpsing** the output of plate based biology experiments. 
+The two main functions are **emGeezen** and **enGlimpse** which both visualise experiment results in a plate format. The functions have different flavours, and **emGeezen** is recommended.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r,results='hide', warning=FALSE}
 
 #install devtools if needed
 if(!require("devtools")) install.packages("devtools")
@@ -24,10 +30,11 @@ install_github("somaSystems/enGlimpse")
 
 
 
-#Create demonstration data
-```{r cars}
-set.seed(1)
+## Demonstration data
+```{r}
+#demonstration data in the format of a 96 well plate
 
+set.seed(1)
 df_to_glimpse <- data.frame(
   Row = rep(c(1:8), times = 12), #Rows as numbers
   Column = rep(c(1:12), each = 8), #Columns as numbers 
@@ -36,17 +43,16 @@ df_to_glimpse <- data.frame(
 ```
 
 ## emGeezen
-- emGeeze (verb form of the noun "Geez"), which is Australian/NewZealand slang for "squiz","gander" or a quick look at something. The verb from comes from the "em" prefix, as in the phrase "a noble spirit embiggins the smalles person". 
-- is a package of tools for **emgeezing** or **englimpsing** the output of plate based biology experiments. 
+- emGeeze (verb form of the noun "Geez"), which is Australian/NewZealand slang for "squiz","gander" or a quick look at something. The verb from comes from the "em" prefix, as in the phrase "a noble spirit embiggins the smallest person". 
 
-```{r}
 
-suppressWarnings(library(enGlimpse))
+```{r, warning=FALSE}
+
+library(enGlimpse)
 emGeezen(df_to_glimpse, variable_to_squiz ="exp_value" )
 
 ```
 
-<br>
 ## enGlimpse
 - enGlimpse (verb form of the noun "glimpse") is a package of tools for **englimpsing** the output of plate based biology experiments.  
 - the main function is enGlimpse for visualising summary statistics of your plate based experiment

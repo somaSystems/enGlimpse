@@ -42,7 +42,7 @@ emGeezen <- function(plate_data = NULL,
     num_df <- as.data.frame(num_df)
   }
 
-  cat("rownames is called...",rowNames)
+  # cat("rownames is called...",rowNames)
   #function to Join filler plate to original data
   add_missing_rows_and_cols <- function(my_platey,plate_data){
     joined_plate_data <- dplyr::left_join(my_platey, plate_data, by = c("Row" = rowNames, "Column" = colNames))
