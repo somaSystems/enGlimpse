@@ -3,6 +3,7 @@ README
 LGD
 20/05/2023
 
+-   [Installation](#installation)
 -   [Demonstration data](#demonstration-data)
 -   [emGeezen](#emgeezen)
 -   [enGlimpse](#englimpse)
@@ -13,25 +14,17 @@ output of plate based biology experiments. The two main functions are
 in a plate format. The functions have different flavours, and
 **emGeezen** is recommended.
 
+## Installation
+
 ``` r
 #install devtools if needed
 if(!require("devtools")) install.packages("devtools")
-```
-
-    ## Loading required package: devtools
-
-    ## Loading required package: usethis
-
-``` r
 #load devtools
 library(devtools)
 
 #install lifeTimes from github
 install_github("somaSystems/enGlimpse")
 ```
-
-    ## Skipping install of 'enGlimpse' from a github remote, the SHA1 (a4ca3ecc) has not changed since last install.
-    ##   Use `force = TRUE` to force installation
 
 ## Demonstration data
 
@@ -56,8 +49,6 @@ df_to_glimpse <- data.frame(
 library(enGlimpse)
 emGeezen(df_to_glimpse, variable_to_squiz ="exp_value" )
 ```
-
-    ## rownames is called... Row
 
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
