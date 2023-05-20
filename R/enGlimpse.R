@@ -1,5 +1,15 @@
-
-#define enGlimpse function
+#' Add together two numbers
+#'
+#' @param picked_dataframe dataframe to visualse.
+#' @param picked_rownames column with rownumbers.
+#' @param nRows Number of rows if not 8.
+#' @param nCols Number of columns if not 12.
+#' @param picked_variable Variable to visualise.
+#' @param hue_low Rcolors color or HEX code.
+#' @param hue_high Rcolors color or HEX code.
+#' @param hue_breaks a number (defaults 256).
+#' @return A plot of summarised data
+#' @export
 
 enGlimpse <- function(picked_dataframe,
                       picked_rownames = "Row",
@@ -28,9 +38,30 @@ enGlimpse <- function(picked_dataframe,
   hue_breaks <- hue_breaks
 
 
-cat("the value of picked summary is",picked_summary)
 
 #FUNCTION DEFINITIONS
+
+#DEFINE select numeric column, for absence of picked variable
+# selects the first numeric column in a dataframe that is not named "Row" or "Column":
+# returns the selected numeric column name
+
+# select_numeric_column <- function(picked_dataframe, picked_rownames, picked_colnames ) {
+#   picked_rownames <- picked_rownames
+#   picked_colnames <- picked_colnames
+#   col_names <- colnames(picked_dataframe)
+#   for (col in col_names) {
+#     if (col != !!sym(picked_rownames) && col != !!sym(picked_colnames) && is.numeric(picked_dataframe[[col]])) {
+#       picked_variable <- (col)
+#       print("the picked variable is: ", picky_variable)
+#       print("the structure of the picked variable is: ", str(picky_variable))
+#       cat("Warning: No variable selected to summarise, defaulting to: ",picked_variable)
+#     }
+#   }
+# cat("Warning: No numeric variable found for summary")
+# (NULL) # If no suitable column is found
+# }
+
+
 
 #DEFINE function in function
   platey <- function(nRows,nCols){
@@ -49,6 +80,16 @@ cat("the value of picked summary is",picked_summary)
                     picky_colnames = picked_colnames ,
                     picky_variable = picked_variable,
                     picky_summary = picked_summary){
+
+    # if( is.null(picky_variable)){
+    #   # print("Definitely no colname chosen") # remove after working
+    #   # Function to select the first numeric column
+    #   picky_variable <- select_numeric_column(picked_dataframe, picky_variable, picky_colnames)
+    #
+    #
+    # }
+
+
     #group by rows and columns, then summarise
     sum_picked_dataframe <- picked_dataframe %>%
       dplyr::group_by(!!sym(picky_rownames), !!sym(picky_colnames))%>%
@@ -60,6 +101,10 @@ cat("the value of picked summary is",picked_summary)
     sum_picked_dataframe
   }
 
+
+
+
+
 #DEFINE emheaten to widen data, make matrix, and make heatmap
   emheaten <- function(my_platey, my_picky, picked_summary){
     emjoined <- dplyr::left_join(my_platey, my_picky, by = c(Row = colnames(my_picky[1]), Column = colnames(my_picky[2])))
@@ -68,7 +113,7 @@ cat("the value of picked summary is",picked_summary)
                                       id_cols = Row,
                                       names_from = Column,
                                       names_prefix = "Col_",
-                                      values_from = (picked_summary)
+                                      values_from = all_of(picked_summary)
     )
 
   #Make widened data into a matrix
@@ -97,7 +142,5 @@ cat("the value of picked summary is",picked_summary)
   heatmap(my_emheaten, Rowv = NA, Colv = NA, na.rm = TRUE, col = emheaten_colour )
 
 }
-
-
 
 

@@ -1,0 +1,56 @@
+---
+title: "README"
+author: "LGD"
+date: "20/05/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+#install devtools if needed
+if(!require("devtools")) install.packages("devtools")
+#load devtools
+library(devtools)
+
+#install lifeTimes from github
+install_github("somaSystems/enGlimpse")
+
+```
+
+
+
+
+#Create demonstration data
+```{r cars}
+set.seed(1)
+
+df_to_glimpse <- data.frame(
+  Row = rep(c(1:8), times = 12), #Rows as numbers
+  Column = rep(c(1:12), each = 8), #Columns as numbers 
+  exp_value = runif(96,-10,10)) #Measured variables
+
+```
+
+## emGeezen
+- emGeeze (verb form of the noun "Geez"), which is Australian/NewZealand slang for "squiz","gander" or a quick look at something. The verb from comes from the "em" prefix, as in the phrase "a noble spirit embiggins the smalles person". 
+- is a package of tools for **emgeezing** or **englimpsing** the output of plate based biology experiments.  <http://rmarkdown.rstudio.com>.
+
+```{r}
+
+library(enGlimpse)
+
+emGeezen(df_to_glimpse, variable_to_squiz ="exp_value" )
+
+```
+## enGlimpse
+- enGlimpse (verb form of the noun "glimpse") is a package of tools for **englimpsing** the output of plate based biology experiments.  <http://rmarkdown.rstudio.com>.
+- the main function is enGlimpse for visualising summary statistics of your plate based experiment
+
+```{r}
+enGlimpse(df_to_glimpse, picked_variable = "exp_value")
+```
+
