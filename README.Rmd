@@ -37,17 +37,18 @@ df_to_glimpse <- data.frame(
 
 ## emGeezen
 - emGeeze (verb form of the noun "Geez"), which is Australian/NewZealand slang for "squiz","gander" or a quick look at something. The verb from comes from the "em" prefix, as in the phrase "a noble spirit embiggins the smalles person". 
-- is a package of tools for **emgeezing** or **englimpsing** the output of plate based biology experiments.  <http://rmarkdown.rstudio.com>.
+- is a package of tools for **emgeezing** or **englimpsing** the output of plate based biology experiments. 
 
 ```{r}
 
-library(enGlimpse)
-
+suppressWarnings(library(enGlimpse))
 emGeezen(df_to_glimpse, variable_to_squiz ="exp_value" )
 
 ```
+
+<br>
 ## enGlimpse
-- enGlimpse (verb form of the noun "glimpse") is a package of tools for **englimpsing** the output of plate based biology experiments.  <http://rmarkdown.rstudio.com>.
+- enGlimpse (verb form of the noun "glimpse") is a package of tools for **englimpsing** the output of plate based biology experiments.  
 - the main function is enGlimpse for visualising summary statistics of your plate based experiment
 
 ```{r}

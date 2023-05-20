@@ -11,7 +11,6 @@
 #' @param high_col Rcolors color or HEX code.
 #' @return A plot of summarised data
 #' @import ggplot2
-#' @import magrittr
 #' @import dplyr
 #' @import scales
 #' @import rlang
