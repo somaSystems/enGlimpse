@@ -1,14 +1,4 @@
 
-
-#Create test data
-testPlate <- platey(nRows = 8,nCols = 12)
-genotype_effects <-c(1,2.5,1.1,2.25)
-treatment_effects <- c(1,2,4,6,1,2.2,3.8,6.5)
-robs <- rnorm(3, mean = 100, sd = 1) # add variation
-genotype_data <- outer(genotype_effects,robs)
-all_test_data <- (outer(genotype_data,treatment_effects))
-testPlate$mean <- c(all_test_data)
-
 #define enGlimpse function
 
 enGlimpse <- function(picked_dataframe,
@@ -77,7 +67,7 @@ cat("the value of picked summary is",picked_summary)
     pre_matrix <-  tidyr::pivot_wider(emjoined,
                                       id_cols = Row,
                                       names_from = Column,
-                                      names_prefix = "Column_",
+                                      names_prefix = "Col_",
                                       values_from = (picked_summary)
     )
 
@@ -108,5 +98,6 @@ cat("the value of picked summary is",picked_summary)
 
 }
 
-enGlimpse(testPlate, picked_variable = "mean", hue_low = "purple4", hue_high = "hotpink")
+
+
 
