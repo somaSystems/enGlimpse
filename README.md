@@ -5,8 +5,8 @@ LGD
 
 -   [Installation](#installation)
 -   [Demonstration data](#demonstration-data)
--   [emGeezen](#emgeezen)
--   [enGlimpse](#englimpse)
+-   [glancer](#glancer)
+-   [squiz](#squiz)
 
 enGlimpse is a package of tools for **emgeezing** or **englimpsing** the
 output of plate based biology experiments. The two main functions are
@@ -38,29 +38,19 @@ df_to_glimpse <- data.frame(
   exp_value = runif(96,-10,10)) #Measured variables
 ```
 
-## emGeezen
-
--   emGeeze (verb form of the noun “Geez”), which is
-    Australian/NewZealand slang for “squiz”,“gander” or a quick look at
-    something. The verb from comes from the “em” prefix, as in the
-    phrase “a noble spirit embiggins the smallest person”.
+## glancer
 
 ``` r
 library(enGlimpse)
-emGeezen(df_to_glimpse, variable_to_squiz ="exp_value" )
+glancer(df_to_glimpse, variable_to_squiz ="exp_value" )
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](updated_README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
-## enGlimpse
-
--   enGlimpse (verb form of the noun “glimpse”) is a package of tools
-    for **englimpsing** the output of plate based biology experiments.  
--   the main function is enGlimpse for visualising summary statistics of
-    your plate based experiment
+## squiz
 
 ``` r
-enGlimpse(df_to_glimpse, picked_variable = "exp_value")
+squiz(df_to_glimpse, picked_variable = "exp_value")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](updated_README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
