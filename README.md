@@ -45,7 +45,7 @@ library(enGlimpse)
 glancer(df_to_glimpse, variable_to_squiz ="exp_value" )
 ```
 
-![](updated_README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ## squiz
 
@@ -53,4 +53,4 @@ glancer(df_to_glimpse, variable_to_squiz ="exp_value" )
 squiz(df_to_glimpse, picked_variable = "exp_value")
 ```
 
-![](updated_README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
