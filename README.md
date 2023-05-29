@@ -8,11 +8,11 @@ LGD
 -   [glancer](#glancer)
 -   [squiz](#squiz)
 
-enGlimpse is a package of tools for **emgeezing** or **englimpsing** the
+enGlimpse is a package of tools for **glimpsing** the
 output of plate based biology experiments. The two main functions are
-**emGeezen** and **enGlimpse** which both visualise experiment results
+**glancer** and **squiz** which both visualise experiment results
 in a plate format. The functions have different flavours, and
-**emGeezen** is recommended.
+**glancer** is recommended.
 
 ## Installation
 
