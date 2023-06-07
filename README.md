@@ -10,6 +10,7 @@ LGD
 -   [squiz](#squiz)
 -   [eggresR demonstration data](#eggresr-demonstration-data)
 -   [egressR](#egressr)
+-   [chinstall](#chinstall)
 
 enGlimpse is a package of tools for working with the output of biology
 and microscopy experiments in R. It includes functions for common
@@ -97,16 +98,6 @@ corrected_cyclic_riser_df <- egressR(
 **view original and normalised data**
 
 ``` r
-#Original
-ggplot(corrected_cyclic_riser_df, aes( x = time, y = expression))+
-  geom_point()+
-  theme_classic()+
-  ggtitle("original cyclic data")
-```
-
-![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
-
-``` r
 #Normalised data
 ggplot(corrected_cyclic_riser_df, aes( x = time, y = normalisedexpressionfrom_time))+
   geom_point()+
@@ -114,4 +105,12 @@ ggplot(corrected_cyclic_riser_df, aes( x = time, y = normalisedexpressionfrom_ti
   ggtitle("detrended cyclic data")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-7-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+## chinstall
+
+For chill installing packages that may or may not be installed
+
+``` r
+chinstall("ggplot2")
+```

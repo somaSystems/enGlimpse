@@ -84,11 +84,6 @@ corrected_cyclic_riser_df <- egressR(
 
 **view original and normalised data**
 ```{r}
-#Original
-ggplot(corrected_cyclic_riser_df, aes( x = time, y = expression))+
-  geom_point()+
-  theme_classic()+
-  ggtitle("original cyclic data")
 
 #Normalised data
 ggplot(corrected_cyclic_riser_df, aes( x = time, y = normalisedexpressionfrom_time))+
@@ -99,6 +94,13 @@ ggplot(corrected_cyclic_riser_df, aes( x = time, y = normalisedexpressionfrom_ti
 ```
 
 
+## chinstall
+For chill installing packages that may or may not be installed 
+```{r}
+
+chinstall("ggplot2")
+
+```
 
 
 
