@@ -1,4 +1,4 @@
-#' Add together two numbers
+#' updated emGeezen to include ability to plot discrete variables
 #'
 #' @param plate_data dataframe to visualse.
 #' @param rowNames column with rownumbers.
