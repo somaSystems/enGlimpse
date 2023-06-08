@@ -32,7 +32,7 @@ install_github("somaSystems/enGlimpse")
 ```
 
 
-## glancer and squiz demonstration data
+## glancer demonstration data
 ```{r}
 #demonstration data in the format of a 96 well plate
 
@@ -51,12 +51,6 @@ For having a glance at the data
 library(enGlimpse)
 glancer(df_to_glimpse, variable_to_squiz ="exp_value" )
 
-```
-
-## squiz
-For having a squiz at the data
-```{r}
-squiz(df_to_glimpse, picked_variable = "exp_value")
 ```
 
 ## eggresR demonstration data
@@ -94,11 +88,19 @@ ggplot(corrected_cyclic_riser_df, aes( x = time, y = normalisedexpressionfrom_ti
 ```
 
 
-## chinstall
-For chill installing packages that may or may not be installed 
+## chillstall
+For loading and chill installing packages that may or may not be installed. 
+
+If you have lots of time on your hands "chillinstall" is one way to use this function. Otherwise "chinstall" and "chillstall", are both valid and creative ways to abbreviate "chill install", and you can use whichever you prefer. Each combines the words "chill" and "install" into a single word, making it even shorter and potentially easier to pronounce. Ultimately, the choice between "chinstall" and "chillstall" comes down to personal preference and which option resonates better with you.
+
 ```{r}
 
 chinstall("ggplot2")
+
+chillstall("ggplot2")
+
+chillinstall("ggplot2")
+
 
 ```
 

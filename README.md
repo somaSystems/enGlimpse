@@ -4,13 +4,11 @@ LGD
 20/05/2023
 
 -   [Installation](#installation)
--   [glancer and squiz demonstration
-    data](#glancer-and-squiz-demonstration-data)
+-   [glancer demonstration data](#glancer-demonstration-data)
 -   [glancer](#glancer)
--   [squiz](#squiz)
 -   [eggresR demonstration data](#eggresr-demonstration-data)
 -   [egressR](#egressr)
--   [chinstall](#chinstall)
+-   [chillstall](#chillstall)
 
 enGlimpse is a package of tools for working with the output of biology
 and microscopy experiments in R. It includes functions for common
@@ -32,7 +30,7 @@ library(devtools)
 install_github("somaSystems/enGlimpse")
 ```
 
-## glancer and squiz demonstration data
+## glancer demonstration data
 
 ``` r
 #demonstration data in the format of a 96 well plate
@@ -54,16 +52,6 @@ glancer(df_to_glimpse, variable_to_squiz ="exp_value" )
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
-
-## squiz
-
-For having a squiz at the data
-
-``` r
-squiz(df_to_glimpse, picked_variable = "exp_value")
-```
-
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ## eggresR demonstration data
 
@@ -93,7 +81,7 @@ corrected_cyclic_riser_df <- egressR(
 
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 **view original and normalised data**
 
@@ -105,12 +93,26 @@ ggplot(corrected_cyclic_riser_df, aes( x = time, y = normalisedexpressionfrom_ti
   ggtitle("detrended cyclic data")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
-## chinstall
+## chillstall
 
-For chill installing packages that may or may not be installed
+For loading and chill installing packages that may or may not be
+installed.
+
+If you have lots of time on your hands “chillinstall” is one way to use
+this function. Otherwise “chinstall” and “chillstall”, are both valid
+and creative ways to abbreviate “chill install”, and you can use
+whichever you prefer. Each combines the words “chill” and “install” into
+a single word, making it even shorter and potentially easier to
+pronounce. Ultimately, the choice between “chinstall” and “chillstall”
+comes down to personal preference and which option resonates better with
+you.
 
 ``` r
 chinstall("ggplot2")
+
+chillstall("ggplot2")
+
+chillinstall("ggplot2")
 ```
