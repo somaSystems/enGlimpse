@@ -14,9 +14,10 @@ enGlimpse is a package of tools for working with the output of biology
 and microscopy experiments in R. It includes functions for common
 visualisation and normalisation things that you need to do.
 
-The visualisation functions are **limpsing** or having a **squiz** at
-the output of plate based biology experiments. The normalisation
-function is for **eggresR**ing to remove linear trends.
+The visualisation functions are for **glimpsing** the output of 
+plate based biology experiments. The normalisation function is 
+for **eggresR**ing to remove linear trends.  **chillinstall** is
+a terse version of a common verbose pattern for loading packages.
 
 ## Installation
 
