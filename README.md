@@ -4,16 +4,14 @@ LGD
 20/05/2023
 
 -   [Installation](#installation)
--   [glancer demonstration data](#glancer-demonstration-data)
 -   [glancer](#glancer)
--   [eggresR demonstration data](#eggresr-demonstration-data)
 -   [egressR](#egressr)
 -   [chillstall](#chillstall)
 -   [fastloadr](#fastloadr)
 
 <img src="README_files/figure-gfm/glimpseR_logo.png" style="width:80.0%" />
 
-<br> <br> **glimpsR** is a package of tools for working with the output
+<br> <br> **glimpseR** is a package of tools for working with the output
 of biology and microscopy experiments in R. It includes functions for
 common visualisation and normalisation things that you need to do.
 
@@ -33,7 +31,9 @@ library(devtools)
 install_github("somaSystems/enGlimpse")
 ```
 
-## glancer demonstration data
+## glancer
+
+<br> **glancer demonstration data**
 
 ``` r
 #demonstration data in the format of a 96 well plate
@@ -45,9 +45,7 @@ df_to_glimpse <- data.frame(
   exp_value = runif(96,-10,10)) #Measured variables
 ```
 
-## glancer
-
-For having a glance at the data
+For having a glance at the data <br> **run glancer**
 
 ``` r
 library(enGlimpse)
@@ -56,7 +54,9 @@ glancer(df_to_glimpse, variable_to_squiz ="exp_value" )
 
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
-## eggresR demonstration data
+## egressR
+
+<br> **eggresR demonstration data**
 
 ``` r
 set.seed(42)  # Set seed for reproducibility
@@ -71,7 +71,7 @@ y <- .9 * x + rnorm(n, 0, 300) + amplitude * sin(0.01 * x)
 cyclic_riser_df <-data.frame(time = x, expression = y) 
 ```
 
-## egressR
+<br> **run egressR**
 
 ``` r
 corrected_cyclic_riser_df <- egressR(
@@ -110,7 +110,7 @@ whichever you prefer. Each combines the words “chill” and “install” into
 a single word, making it even shorter and potentially easier to
 pronounce. Ultimately, the choice between “chinstall” and “chillstall”
 comes down to personal preference and which option resonates better with
-you.
+you. <br> **run chillstall**
 
 ``` r
 chinstall("ggplot2")
@@ -122,22 +122,30 @@ chillinstall("ggplot2")
 
 ## fastloadr
 
-RDS files load fast, but csv files load slow. This function is for
+<br> RDS files load fast, but csv files load slow. This function is for
 loading an \*.RDS file instead of \*.csv. If you don’t have an RDS
-**fastrloadr** makes one for faster loading next time.
+**fastrloadr** makes one for faster loading next time. <br> **fastloadr
+demonstration data**
 
 ``` r
 # Create demonstration csv
 df <- data.frame(phrase = c("I have an urge for swiftness", "I have a desire for rapidity", 
                             "I have a hunger for haste", "I have a yearning for velocity", 
                             "I have a craving for quickness"))
-# Write the data frame to a CSV file
-write.csv(df, file = "faster_please.csv", row.names = FALSE)
 
+if (!dir.exists("./README_files/data/")) {
+  dir.create("./README_files/data/", recursive = TRUE)}
+
+write.csv(df, file = "./README_files/data/faster_please.csv", row.names = FALSE)
+```
+
+**run fastloadr**
+
+``` r
 # Now, let's use the function to read the CSV file. 
 # If an RDS file with the same name doesn't exist in the same directory, 
 # it will read the CSV file and save it as an RDS file.
-fastdata <- fastloadr("faster_please.csv")
+fastdata <- fastloadr("./README_files/data/faster_please.csv")
 ```
 
     ## RDS file exists. Reading RDS file...
