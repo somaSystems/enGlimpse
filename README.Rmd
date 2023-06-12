@@ -8,11 +8,8 @@ output:
     toc_depth: 3
 ---
 
-enGlimpse is a package of tools for working with the output of biology and microscopy experiments in R. 
-It includes functions for common visualisation and normalisation things that you need to do. 
-
-The visualisation functions are **limpsing** or having a **squiz** at the output of plate based biology experiments. 
-The normalisation function is for **eggresR**ing to remove linear trends.
+enGlimpse is a package of tools for **emgeezing** or **englimpsing** the output of plate based biology experiments. 
+The two main functions are **emGeezen** and **enGlimpse** which both visualise experiment results in a plate format. The functions have different flavours, and **emGeezen** is recommended.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -31,8 +28,7 @@ install_github("somaSystems/enGlimpse")
 
 ```
 
-
-## glancer demonstration data
+## Demonstration data
 ```{r}
 #demonstration data in the format of a 96 well plate
 
@@ -44,67 +40,24 @@ df_to_glimpse <- data.frame(
 
 ```
 
-## glancer
-For having a glance at the data
+## emGeezen
+- emGeeze (verb form of the noun "Geez"), which is Australian/NewZealand slang for "squiz","gander" or a quick look at something. The verb from comes from the "em" prefix, as in the phrase "a noble spirit embiggins the smallest person". 
+
+
 ```{r, warning=FALSE}
 
 library(enGlimpse)
-glancer(df_to_glimpse, variable_to_squiz ="exp_value" )
+glance(df_to_glimpse, variable_to_squiz ="exp_value" )
 
 ```
 
-## eggresR demonstration data
+## enGlimpse
+- enGlimpse (verb form of the noun "glimpse") is a package of tools for **englimpsing** the output of plate based biology experiments.  
+- the main function is enGlimpse for visualising summary statistics of your plate based experiment
 
 ```{r}
-set.seed(42)  # Set seed for reproducibility
-
-n <- 800  # Number of data points
-x <- runif(n, 0, 2000)  # Generate random x values between 0 and 1000
-
-# Generate y values with a linear correlation and a sine wave pattern
-amplitude <- 400  # Amplitude of the sine wave
-y <- .9 * x + rnorm(n, 0, 300) + amplitude * sin(0.01 * x)
-
-cyclic_riser_df <-data.frame(time = x, expression = y) 
+squiz(df_to_glimpse, picked_variable = "exp_value")
 ```
-
-## egressR
-```{r}
-corrected_cyclic_riser_df <- egressR(
-                      data_frame_to_build_model = cyclic_riser_df,
-                      response_var = "expression",
-                      predictor_variable = "time")
-```
-
-**view original and normalised data**
-```{r}
-
-#Normalised data
-ggplot(corrected_cyclic_riser_df, aes( x = time, y = normalisedexpressionfrom_time))+
-  geom_point()+
-  theme_classic()+
-  ggtitle("detrended cyclic data")
-
-```
-
-
-## chillstall
-For loading and chill installing packages that may or may not be installed. 
-
-If you have lots of time on your hands "chillinstall" is one way to use this function. Otherwise "chinstall" and "chillstall", are both valid and creative ways to abbreviate "chill install", and you can use whichever you prefer. Each combines the words "chill" and "install" into a single word, making it even shorter and potentially easier to pronounce. Ultimately, the choice between "chinstall" and "chillstall" comes down to personal preference and which option resonates better with you.
-
-```{r}
-
-chinstall("ggplot2")
-
-chillstall("ggplot2")
-
-chillinstall("ggplot2")
-
-
-```
-
-
 
 ## fastloadr
 
@@ -132,6 +85,3 @@ print(data)
 ```
 
 The function reads in a path to a CSV file. If an RDS file with the same name and directory exists, it will read and return this RDS file. If such an RDS file does not exist, the function reads the CSV file, saves this data as an RDS file in the same directory, and then returns the data.
-
-
-
