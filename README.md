@@ -15,9 +15,11 @@ LGD
 of biology and microscopy experiments in R. It includes functions for
 common visualisation and normalisation things that you need to do.
 
-The visualisation functions are **limpsing** or having a **squiz** at
-the output of plate based biology experiments. The normalisation
-function is for **eggresR**ing to remove linear trends.
+The visualisation functions are **glancer** for having a squiz at the
+output of plate based biology experiments. The normalisation function
+**eggresR**ing to remove linear trends. The quick way to install things
+is by **chillstall** The fast way to reload large csv data is by
+**fastloadr**
 
 ## Installation
 
