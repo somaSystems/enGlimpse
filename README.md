@@ -11,9 +11,11 @@ LGD
 -   [chillstall](#chillstall)
 -   [fastloadr](#fastloadr)
 
-enGlimpse is a package of tools for working with the output of biology
-and microscopy experiments in R. It includes functions for common
-visualisation and normalisation things that you need to do.
+<img src="README_files/figure-gfm/glimpseR_logo.png" style="width:80.0%" />
+
+<br> <br> **glimpsR** is a package of tools for working with the output
+of biology and microscopy experiments in R. It includes functions for
+common visualisation and normalisation things that you need to do.
 
 The visualisation functions are **limpsing** or having a **squiz** at
 the output of plate based biology experiments. The normalisation
