@@ -1,4 +1,4 @@
-#' updated emGeezen to include ability to plot discrete variables
+#' Add together two numbers
 #'
 #' @param plate_data dataframe to visualse.
 #' @param rowNames column with rownumbers.
@@ -9,7 +9,6 @@
 #' @param variable_to_squiz Variable to visualise.
 #' @param low_col Rcolors color or HEX code.
 #' @param high_col Rcolors color or HEX code.
-#' @param discrete default is FALSE but set to TRUE if variable is categorical
 #' @return A plot of summarised data
 #' @import ggplot2
 #' @import dplyr
@@ -17,21 +16,20 @@
 #' @import rlang
 #' @export
 
-emGeezenR <- function(plate_data = NULL,
-                         variable_to_squiz = NULL,
-                         low_col = "darkblue",
-                         high_col = "hotpink",
-                         rowNames = "Row",
-                         colNames = "Column",
-                         summary = "mean",
-                         numRows = 8,
-                         numCols = 12,
-                         discrete = FALSE) {
-  library(ggplot2)
-  library(scales)
+emGeezen <- function(plate_data = NULL,
+                     variable_to_squiz = NULL,
+                     low_col = "darkblue",
+                     high_col = "hotpink",
+                     rowNames = "Row",
+                     colNames = "Column",
+                     summary = "mean",
+                     numRows = 8,
+                     numCols = 12
+){
+  # library(ggplot2)
+  # library(scales)
   # library(dplyr)
-  library(rlang)
-  library(viridis)
+  # library(rlang)
 
   # `%>%` <- magrittr::`%>%`
 
@@ -53,7 +51,7 @@ emGeezenR <- function(plate_data = NULL,
   #function to generate summaries of chosen variable
   summarise_data <- function(joined_plate_data) {sum_data <- joined_plate_data%>%
     dplyr::group_by(!!rlang::sym(rowNames),!!rlang::sym(colNames))%>%
-    dplyr::summarise(mean_of_data = mean(!!rlang::sym(variable_to_squiz), na.rm = TRUE),
+    dplyr::summarise(mean_of_data = mean(!!rlang::sym(variable_to_squiz)),
                      sd_of_data = sd(!!rlang::sym(variable_to_squiz)),
                      min_of_data= min(!!rlang::sym(variable_to_squiz)),
                      max_of_data = max((!!rlang::sym(variable_to_squiz))))
@@ -72,49 +70,17 @@ emGeezenR <- function(plate_data = NULL,
       scale_x_reverse(breaks = pretty_breaks(n = length(unique(sum_data$Row)) ))+
       scale_y_continuous(breaks = pretty_breaks(n = length(unique(sum_data$Column)) ) )+
       # scale_x_continuous()+
-      theme_classic()+
-      ggtitle(variable_to_squiz)
-
+      theme_classic()
   }
 
-
-  emgeezen_discrete_plot <- function(joined_plate_data, low_col, high_col){
-    # emGeezen_plot <- ggplot2::ggplot(joined_plate_data, aes(!!rlang::sym(rowNames), !!rlang::sym(colNames))) +
-    #   geom_tile(aes(fill = !!rlang::sym(variable_to_squiz), color = "black")) +
-    #   scale_fill_gradient(low = low_col, high = high_col)+
-    #   coord_flip()+
-    #   scale_x_reverse(breaks = pretty_breaks(n = length(unique(joined_plate_data$Row)) ))+
-    #   scale_y_continuous(breaks = pretty_breaks(n = length(unique(joined_plate_data$Column)) ) )+
-    #   # scale_x_continuous()+w
-    #   theme_classic()
-    emGeezen_plot <- ggplot2::ggplot(joined_plate_data, aes(!!rlang::sym(rowNames), !!rlang::sym(colNames))) +
-      geom_tile(aes(fill = !!rlang::sym(variable_to_squiz), color = "black")) +
-      scale_fill_viridis(discrete = TRUE)+
-      coord_flip()+
-      scale_x_reverse(breaks = pretty_breaks(n = length(unique(joined_plate_data$Row)) ))+
-      scale_y_continuous(breaks = pretty_breaks(n = length(unique(joined_plate_data$Column)) ) )+
-      # scale_x_continuous()+w
-      theme_classic()+
-      ggtitle(variable_to_squiz)
-  }
-
-  if(discrete == TRUE){
-    print("discrete_value_workflow")
-    my_platey <- platey(nRows,nCols)
-
-    joined_plate_data <- add_missing_rows_and_cols(my_platey,plate_data)
-
-    emgzn <- emgeezen_discrete_plot(joined_plate_data, low_col, high_col)
-    emgzn
-  }else{
-    #call empty plate of correct dimensions
-    my_platey <- platey(nRows,nCols)
-    #call join of empty plate and plate_data
-    joined_plate_data <- add_missing_rows_and_cols(my_platey,plate_data)
-    #call summarise full plate data
-    sum_data <- summarise_data(joined_plate_data)
-    #call plot of data
-    emgzn <- emgeezen_plot(sum_data, low_col, high_col)
-    emgzn
-  }
+  #call empty plate of correct dimensions
+  my_platey <- platey(nRows,nCols)
+  #call join of empty plate and plate_data
+  joined_plate_data <- add_missing_rows_and_cols(my_platey,plate_data)
+  #call summarise full plate data
+  sum_data <- summarise_data(joined_plate_data)
+  #call plot of data
+  emgzn <- emgeezen_plot(sum_data, low_col, high_col)
+  emgzn
 }
+

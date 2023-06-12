@@ -106,7 +106,32 @@ chillinstall("ggplot2")
 
 
 
+## fastloadr
 
+For loading an \*.RDS file instead of \*.csv. If you don't have an RDS *fastrloadr* makes one for next time. 
+
+```{r}
+
+# Create a data frame
+df <- data.frame(phrase = c("I have an urge for swiftness", "I have a desire for rapidity", 
+                            "I have a hunger for haste", "I have a yearning for velocity", 
+                            "I have a craving for quickness"))
+
+# Write the data frame to a CSV file
+write.csv(df, file = "faster_please", row.names = FALSE)
+
+# Now, let's use the function to read the CSV file. 
+# If an RDS file with the same name doesn't exist in the same directory, 
+# it will read the CSV file and save it as an RDS file.
+fastdata <- fastloadr("faster_please.csv")
+
+# Print the data
+print(data)
+
+
+```
+
+The function reads in a path to a CSV file. If an RDS file with the same name and directory exists, it will read and return this RDS file. If such an RDS file does not exist, the function reads the CSV file, saves this data as an RDS file in the same directory, and then returns the data.
 
 
 
