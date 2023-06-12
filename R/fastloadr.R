@@ -21,7 +21,7 @@ fastloadr <- function(csv_path) {
     data <- readRDS(rds_path)
   } else { # If the RDS file does not exist, read the CSV, save it as RDS, and return it
     message("RDS file does not exist. Reading CSV file and saving as RDS...")
-    data <- read_csv(csv_path)
+    data <- read.csv(csv_path)
     saveRDS(data, rds_path)
   }
 
