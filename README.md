@@ -9,15 +9,15 @@ LGD
 -   [eggresR demonstration data](#eggresr-demonstration-data)
 -   [egressR](#egressr)
 -   [chillstall](#chillstall)
+-   [fastloadr](#fastloadr)
 
 enGlimpse is a package of tools for working with the output of biology
 and microscopy experiments in R. It includes functions for common
 visualisation and normalisation things that you need to do.
 
-The visualisation functions are for **glimpsing** the output of 
-plate based biology experiments. The normalisation function is 
-for **eggresR**ing to remove linear trends.  **chillinstall** is
-a terse version of a common verbose pattern for loading packages.
+The visualisation functions are **limpsing** or having a **squiz** at
+the output of plate based biology experiments. The normalisation
+function is for **eggresR**ing to remove linear trends.
 
 ## Installation
 
@@ -117,3 +117,45 @@ chillstall("ggplot2")
 
 chillinstall("ggplot2")
 ```
+
+## fastloadr
+
+RDS files load fast, but csv files load slow. This function is for
+loading an \*.RDS file instead of \*.csv. If you don’t have an RDS
+**fastrloadr** makes one for faster loading next time.
+
+``` r
+# Create demonstration csv
+df <- data.frame(phrase = c("I have an urge for swiftness", "I have a desire for rapidity", 
+                            "I have a hunger for haste", "I have a yearning for velocity", 
+                            "I have a craving for quickness"))
+# Write the data frame to a CSV file
+write.csv(df, file = "faster_please.csv", row.names = FALSE)
+
+# Now, let's use the function to read the CSV file. 
+# If an RDS file with the same name doesn't exist in the same directory, 
+# it will read the CSV file and save it as an RDS file.
+fastdata <- fastloadr("faster_please.csv")
+```
+
+    ## RDS file exists. Reading RDS file...
+
+``` r
+# Print the data
+print(fastdata)
+```
+
+    ## # A tibble: 5 × 1
+    ##   phrase                        
+    ##   <chr>                         
+    ## 1 I have an urge for swiftness  
+    ## 2 I have a desire for rapidity  
+    ## 3 I have a hunger for haste     
+    ## 4 I have a yearning for velocity
+    ## 5 I have a craving for quickness
+
+The function reads in a path to a CSV file. If an RDS file with the same
+name and directory exists, it will read and return this RDS file. If
+such an RDS file does not exist, the function reads the CSV file, saves
+this data as an RDS file in the same directory, and then returns the
+data.
