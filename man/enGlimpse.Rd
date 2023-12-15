@@ -20,13 +20,17 @@ enGlimpse(
 \arguments{
 \item{picked_dataframe}{dataframe to visualse.}
 
-\item{picked_rownames}{column with rownumbers.}
+\item{picked_rownames}{name of vector with row numbers.}
+
+\item{picked_colnames}{name of vector with col numbers}
 
 \item{nRows}{Number of rows if not 8.}
 
 \item{nCols}{Number of columns if not 12.}
 
 \item{picked_variable}{Variable to visualise.}
+
+\item{picked_summary}{chosen summary statistic function name}
 
 \item{hue_low}{Rcolors color or HEX code.}
 

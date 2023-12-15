@@ -1,12 +1,14 @@
-#' Add together two numbers
+#' Look at plate based data
 #'
 #' @param picked_dataframe dataframe to visualse.
-#' @param picked_rownames column with rownumbers.
+#' @param picked_rownames name of vector with row numbers.
+#' @param picked_colnames name of vector with col numbers
 #' @param nRows Number of rows if not 8.
 #' @param nCols Number of columns if not 12.
 #' @param picked_variable Variable to visualise.
 #' @param hue_low Rcolors color or HEX code.
 #' @param hue_high Rcolors color or HEX code.
+#' @param picked_summary chosen summary statistic function
 #' @param hue_breaks a number (defaults 256).
 #' @return A plot of summarised data
 #' @export

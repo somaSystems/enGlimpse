@@ -12,7 +12,7 @@
 #' @return A plot of summarised data
 #' @import ggplot2
 #' @import dplyr
-#' @import scales
+#' @importFrom scales pretty_breaks
 #' @import rlang
 #' @export
 
@@ -26,10 +26,6 @@ emGeezen <- function(plate_data = NULL,
                      numRows = 8,
                      numCols = 12
 ){
-  # library(ggplot2)
-  # library(scales)
-  # library(dplyr)
-  # library(rlang)
 
   # `%>%` <- magrittr::`%>%`
 
@@ -67,13 +63,13 @@ emGeezen <- function(plate_data = NULL,
       geom_tile(aes(fill = mean_of_data), colour = "black") +
       scale_fill_gradient(low = low_col, high = high_col)+
       coord_flip()+
-      scale_x_reverse(breaks = pretty_breaks(n = length(unique(sum_data$Row)) ))+
-      scale_y_continuous(breaks = pretty_breaks(n = length(unique(sum_data$Column)) ) )+
+      scale_x_reverse(breaks = scales::pretty_breaks(n = length(unique(sum_data$Row)) ))+
+      scale_y_continuous(breaks = scales::pretty_breaks(n = length(unique(sum_data$Column)) ) )+
       # scale_x_continuous()+
       theme_classic()
   }
 
-  #call empty plate of correct dimensions
+    #call empty plate of correct dimensions
   my_platey <- platey(nRows,nCols)
   #call join of empty plate and plate_data
   joined_plate_data <- add_missing_rows_and_cols(my_platey,plate_data)

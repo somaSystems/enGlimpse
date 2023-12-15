@@ -61,7 +61,7 @@ egressR <- function(data_frame_to_build_model,
   #DEFINE function to plot regression model
   #https://sejohnston.com/2012/08/09/a-quick-and-easy-function-to-plot-lm-results-in-r/
   ggplotRegression <- function (fit) {
-    require(ggplot2)
+    # require(ggplot2)
     ggplot(fit$model, aes_string(x = names(fit$model)[2], y = names(fit$model)[1])) +
       geom_point() +
       stat_smooth(method = "lm", col = "dodgerblue") +

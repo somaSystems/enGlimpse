@@ -8,6 +8,7 @@
 #'
 #'
 #' @param package_as_string dataframe to visualse.
+#' @importFrom utils install.packages read.csv head
 #' @export
 
 chillinstall <- function(package_as_string){
