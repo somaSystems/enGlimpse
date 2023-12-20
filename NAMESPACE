@@ -3,6 +3,7 @@
 export(chillinstall)
 export(chillstall)
 export(chinstall)
+export(countThings)
 export(egressR)
 export(emGeezen)
 export(enGlimpse)
